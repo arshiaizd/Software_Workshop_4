@@ -22,4 +22,15 @@ public class CalculatorTest {
         assertEquals(-12, calculator.multiply(-6, 2));
         assertEquals(12, calculator.multiply(-6, -2));
     }
+
+    @Test
+    public void dividesIntegers() {
+        assertEquals(3, calculator.divide(6, 2));
+        assertEquals(3, calculator.divide(7, 2));
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void divisionByZeroThrowsArithmeticException() {
+        calculator.divide(6, 0);
+    }
 }
