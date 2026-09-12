@@ -33,4 +33,19 @@ public class CalculatorTest {
     public void divisionByZeroThrowsArithmeticException() {
         calculator.divide(6, 0);
     }
+
+    @Test
+    public void anyBaseToZeroExponentReturnsOne() {
+        assertEquals(1, calculator.power(6, 0));
+    }
+
+    @Test
+    public void exponentOneReturnsTheBase() {
+        assertEquals(6, calculator.power(6, 1));
+    }
+
+    @Test
+    public void calculatesRepresentativePower() {
+        assertEquals(36, calculator.power(6, 2));
+    }
 }
