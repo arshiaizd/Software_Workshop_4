@@ -15,6 +15,8 @@ Feature: Calculator
       | 1     | 12     | 13     |
       | -1    | 6      | 5      |
       | 2     | 2      | 4      |
+      | 8     | -3     | 5      |
+      | -4    | -5     | -9     |
 
   Scenario: multiply two numbers
     Given Two input values, 6 and 2

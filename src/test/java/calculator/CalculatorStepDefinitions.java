@@ -49,7 +49,7 @@ public class CalculatorStepDefinitions {
         }
     }
 
-    @Then("^I expect the result (\\d+)$")
+    @Then("^I expect the result (-?\\d+)$")
     public void expectTheResult(int expectedResult) {
         assertEquals(expectedResult, result);
     }
