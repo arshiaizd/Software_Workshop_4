@@ -8,6 +8,26 @@ public class CalculatorTest {
     private final Calculator calculator = new Calculator();
 
     @Test
+    public void addsPositiveNumbers() {
+        assertEquals(3, calculator.add(1, 2));
+    }
+
+    @Test
+    public void addsNegativeAndPositiveNumbers() {
+        assertEquals(5, calculator.add(-1, 6));
+    }
+
+    @Test
+    public void addsPositiveAndNegativeNumbers() {
+        assertEquals(5, calculator.add(8, -3));
+    }
+
+    @Test
+    public void addsNegativeNumbers() {
+        assertEquals(-9, calculator.add(-4, -5));
+    }
+
+    @Test
     public void multipliesPositiveNumbers() {
         assertEquals(12, calculator.multiply(6, 2));
     }
