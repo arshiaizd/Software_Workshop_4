@@ -1,5 +1,6 @@
 package calculator;
 
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -7,9 +8,15 @@ import cucumber.api.java.en.When;
 import static org.junit.Assert.assertEquals;
 
 public class CalculatorStepDefinitions {
+    private Calculator calculator;
     private int firstInput;
     private int secondInput;
     private int result;
+
+    @Before
+    public void setUpCalculator() {
+        calculator = new Calculator();
+    }
 
     @Given("^Two input values, (-?\\d+) and (-?\\d+)$")
     public void twoInputValues(int firstInput, int secondInput) {
@@ -19,27 +26,26 @@ public class CalculatorStepDefinitions {
 
     @When("^I add the two values$")
     public void addTheTwoValues() {
-        result = new Calculator().add(firstInput, secondInput);
+        result = calculator.add(firstInput, secondInput);
     }
 
     @When("^I multiply the two values$")
     public void multiplyTheTwoValues() {
-        result = new Calculator().multiply(firstInput, secondInput);
+        result = calculator.multiply(firstInput, secondInput);
     }
 
     @When("^I divide the two values$")
     public void divideTheTwoValues() {
-        result = new Calculator().divide(firstInput, secondInput);
+        result = calculator.divide(firstInput, secondInput);
     }
 
     @When("^I raise the first value to the second value$")
     public void raiseTheFirstValueToTheSecondValue() {
-        result = new Calculator().power(firstInput, secondInput);
+        result = calculator.power(firstInput, secondInput);
     }
 
     @When("^I perform the (multiply|divide|power) operation$")
     public void calculateUsingTheRequestedOperation(String operation) {
-        Calculator calculator = new Calculator();
         if ("multiply".equals(operation)) {
             result = calculator.multiply(firstInput, secondInput);
         } else if ("divide".equals(operation)) {
