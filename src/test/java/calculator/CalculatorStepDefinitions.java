@@ -1,7 +1,10 @@
 package calculator;
 
 import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+
+import static org.junit.Assert.assertEquals;
 
 public class CalculatorStepDefinitions {
     private int firstInput;
@@ -14,6 +17,11 @@ public class CalculatorStepDefinitions {
         this.secondInput = secondInput;
     }
 
+    @When("^I add the two values$")
+    public void addTheTwoValues() {
+        result = firstInput + secondInput;
+    }
+
     @When("^I multiply the two values$")
     public void multiplyTheTwoValues() {
         result = new Calculator().multiply(firstInput, secondInput);
@@ -22,5 +30,15 @@ public class CalculatorStepDefinitions {
     @When("^I divide the two values$")
     public void divideTheTwoValues() {
         result = new Calculator().divide(firstInput, secondInput);
+    }
+
+    @When("^I raise the first value to the second value$")
+    public void raiseTheFirstValueToTheSecondValue() {
+        result = new Calculator().power(firstInput, secondInput);
+    }
+
+    @Then("^I expect the result (\\d+)$")
+    public void expectTheResult(int expectedResult) {
+        assertEquals(expectedResult, result);
     }
 }

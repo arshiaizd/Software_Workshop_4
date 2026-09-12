@@ -14,3 +14,8 @@ Feature: Calculator
     Given Two input values, 6 and 2
     When I divide the two values
     Then I expect the result 3
+
+  Scenario: raise a number to a power
+    Given Two input values, 6 and 2
+    When I raise the first value to the second value
+    Then I expect the result 36
