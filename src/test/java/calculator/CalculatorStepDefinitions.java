@@ -11,7 +11,7 @@ public class CalculatorStepDefinitions {
     private int secondInput;
     private int result;
 
-    @Given("^Two input values, (\\d+) and (\\d+)$")
+    @Given("^Two input values, (-?\\d+) and (-?\\d+)$")
     public void twoInputValues(int firstInput, int secondInput) {
         this.firstInput = firstInput;
         this.secondInput = secondInput;
@@ -49,7 +49,7 @@ public class CalculatorStepDefinitions {
         }
     }
 
-    @Then("^I expect the result (\\d+)$")
+    @Then("^I expect the result (-?\\d+)$")
     public void expectTheResult(int expectedResult) {
         assertEquals(expectedResult, result);
     }
