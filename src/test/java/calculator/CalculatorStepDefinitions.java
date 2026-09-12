@@ -37,6 +37,18 @@ public class CalculatorStepDefinitions {
         result = new Calculator().power(firstInput, secondInput);
     }
 
+    @When("^I perform the (multiply|divide|power) operation$")
+    public void calculateUsingTheRequestedOperation(String operation) {
+        Calculator calculator = new Calculator();
+        if ("multiply".equals(operation)) {
+            result = calculator.multiply(firstInput, secondInput);
+        } else if ("divide".equals(operation)) {
+            result = calculator.divide(firstInput, secondInput);
+        } else {
+            result = calculator.power(firstInput, secondInput);
+        }
+    }
+
     @Then("^I expect the result (\\d+)$")
     public void expectTheResult(int expectedResult) {
         assertEquals(expectedResult, result);
