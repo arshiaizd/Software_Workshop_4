@@ -19,7 +19,7 @@ public class CalculatorStepDefinitions {
 
     @When("^I add the two values$")
     public void addTheTwoValues() {
-        result = firstInput + secondInput;
+        result = new Calculator().add(firstInput, secondInput);
     }
 
     @When("^I multiply the two values$")
